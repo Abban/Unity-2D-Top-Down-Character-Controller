@@ -16,8 +16,9 @@ namespace BBX.Player
         public PlayerSettings playerSettings;
         public PlayerModel.Components modelComponents;
         public PlayerGuiHandler.Components guiComponents;
-        public PlayerAnimationHandler.Components animationComponents;
+        public PlayerAnimatorHandler.Components animationComponents;
         public PlayerSoundHandler.Settings soundHandlerSettings;
+        public PlayerCollisionHandler.Components collisionComponents;
         
         public override void InstallBindings()
         {
@@ -30,15 +31,11 @@ namespace BBX.Player
                 .WithArguments(modelComponents, InputState)
                 .NonLazy();
             
-            Container.BindInterfacesTo<PlayerController>()
-                .AsSingle()
-                .NonLazy();
-            
             Container.Bind<PlayerMovementHandler>()
                 .AsSingle()
                 .NonLazy();
             
-            Container.Bind<PlayerAnimationHandler>()
+            Container.BindInterfacesAndSelfTo<PlayerAnimatorHandler>()
                 .AsSingle()
                 .WithArguments(animationComponents)
                 .NonLazy();
@@ -79,6 +76,7 @@ namespace BBX.Player
             
             Container.BindInterfacesAndSelfTo<PlayerCollisionHandler>()
                 .AsSingle()
+                .WithArguments(collisionComponents)
                 .NonLazy();
         }
 
@@ -102,7 +100,7 @@ namespace BBX.Player
         {
             Container.Bind<StateMachine>()
                 .AsSingle()
-                .WhenInjectedInto<PlayerController>();
+                .WhenInjectedInto<PlayerFacade>();
 
             Container.Bind<IStateFactory>()
                 .To<PlayerStateFactory>()

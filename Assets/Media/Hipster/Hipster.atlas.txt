@@ -1,0 +1,48 @@
+
+Hipster.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+beard_rear
+  rotate: false
+  xy: 319, 71
+  size: 88, 77
+  orig: 88, 77
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 319, 150
+  size: 88, 88
+  orig: 88, 88
+  offset: 0, 0
+  index: -1
+hand_left
+  rotate: false
+  xy: 2, 2
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+hand_right
+  rotate: false
+  xy: 2, 2
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+head_front
+  rotate: false
+  xy: 2, 30
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+head_rear
+  rotate: false
+  xy: 160, 52
+  size: 157, 186
+  orig: 157, 186
+  offset: 0, 0
+  index: -1

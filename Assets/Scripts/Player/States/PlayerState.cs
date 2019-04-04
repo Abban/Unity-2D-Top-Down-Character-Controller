@@ -21,7 +21,6 @@ namespace BBX.Player.States
         
         public override void Exit()
         {
-            throw new System.NotImplementedException();
         }
     }
 }

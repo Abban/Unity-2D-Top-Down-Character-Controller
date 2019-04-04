@@ -15,10 +15,10 @@ MonoBehaviour:
   speed: 10
   triggerMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 1024
   wallMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 256
   skinWidth: 0.02
   horizontalRays: 8
   verticalRays: 4

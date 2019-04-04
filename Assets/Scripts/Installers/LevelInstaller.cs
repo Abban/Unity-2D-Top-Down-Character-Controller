@@ -1,9 +1,18 @@
 using UnityEngine;
 using Zenject;
+using BBX.Player;
 
-public class LevelInstaller : MonoInstaller
+namespace BBX.Installers
 {
-    public override void InstallBindings()
+    public class LevelInstaller : MonoInstaller
     {
+        public GameObject player;
+        
+        public override void InstallBindings()
+        {
+            Container.Bind<PlayerFacade>()
+                .FromComponentInHierarchy(player)
+                .AsSingle();
+        }
     }
 }

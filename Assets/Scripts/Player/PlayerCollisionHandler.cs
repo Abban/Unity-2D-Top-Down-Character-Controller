@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Zenject;
 using BBX.Player.Models;
 
@@ -18,6 +19,7 @@ namespace BBX.Player
         }
 
         private PlayerModel _player;
+        private Components _components;
         private PlayerSettings _playerSettings;
         private CharacterRaycastOrigins _raycastOrigins;
         private Vector2 _raySpacing;
@@ -28,7 +30,7 @@ namespace BBX.Player
         private float SkinWidth => _playerSettings.skinWidth;
         private int HorizontalRays => _playerSettings.horizontalRays;
         private int VerticalRays => _playerSettings.verticalRays;
-        private BoxCollider2D BoxCollider2D => _player.BoxCollider2D;
+        private BoxCollider2D BoxCollider2D => _components.boxCollider2D;
         private LayerMask WallMask => _playerSettings.wallMask;
 
 
@@ -36,12 +38,15 @@ namespace BBX.Player
         /// Constructor
         /// </summary>
         /// <param name="player"></param>
+        /// <param name="components"></param>
         /// <param name="playerSettings"></param>
         public PlayerCollisionHandler(
             PlayerModel player,
+            Components components,
             PlayerSettings playerSettings)
         {
             _player = player;
+            _components = components;
             _playerSettings = playerSettings;
         }
 
@@ -191,6 +196,13 @@ namespace BBX.Player
                 xSize / (VerticalRays - 1),
                 ySize / (HorizontalRays - 1)
             );
+        }
+
+        
+        [Serializable]
+        public class Components
+        {
+            public BoxCollider2D boxCollider2D;
         }
     }
 }

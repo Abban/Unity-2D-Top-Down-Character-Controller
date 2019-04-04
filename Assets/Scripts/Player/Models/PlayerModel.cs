@@ -9,12 +9,13 @@ namespace BBX.Player.Models
         private Components _components;
         
         public Transform Transform => _components.transform;
-        public Rigidbody2D Rigidbody2D => _components.rigidbody2D;
-        public BoxCollider2D BoxCollider2D => _components.boxCollider2D;
         public PlayerTriggerItems TriggerItems { get; }
         public PlayerCollisionState CollisionState { get; }
-
         public IInputState Input { get; }
+
+        public Vector2 LastPosition { get; set; }
+
+        public bool IsMoving => Vector2.Distance(Position, LastPosition) > 0.001;
 
 
         /// <summary>
@@ -50,8 +51,6 @@ namespace BBX.Player.Models
         [Serializable]
         public class Components
         {
-            public Rigidbody2D rigidbody2D;
-            public BoxCollider2D boxCollider2D;
             public Transform transform;
         }
     }

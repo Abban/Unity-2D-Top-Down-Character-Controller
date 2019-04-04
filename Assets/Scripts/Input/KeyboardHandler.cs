@@ -1,7 +1,5 @@
-﻿using System;
+﻿using Zenject;
 using BBX.Input.Interfaces;
-using UnityEngine;
-using Zenject;
 
 namespace BBX.Input
 {

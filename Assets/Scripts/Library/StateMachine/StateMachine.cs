@@ -27,7 +27,6 @@ namespace BBX.Library.FSM
 		public void ChangeState(Type type)
 		{
 			var state = _factory.Create(type);
-			Debug.LogFormat("Changing state to: {0}", type);
 			
 			if (CurrentState == null)
 			{
